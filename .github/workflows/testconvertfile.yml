@@ -1,4 +1,4 @@
-name: Test Pi-hole Blocklist
+name: Update Pi-hole Blocklist
 
 on:
   workflow_dispatch:
@@ -32,14 +32,18 @@ jobs:
         # Convert the filter list to a Pi-hole blocklist
         grep -o '||.*^' adblock.txt | sed 's/||//;s/\^//' > pihole_blocklist.txt
 
-        # Print out some debugging information
-        echo "Contents of the current directory:"
-        ls -l
-        echo "First 10 lines of the blocklist:"
-        head pihole_blocklist.txt
-
         # Remove the downloaded filter list
         rm adblock.txt
+
+    - name: Check if file exists and create if not
+      run: |
+        FILE=pihole_blocklist.txt
+        if [ ! -f "$FILE" ]; then
+          touch "$FILE"
+          echo "$FILE created."
+        else
+          echo "$FILE exists."
+        fi
 
     - name: Commit and push if it changed
       run: |
