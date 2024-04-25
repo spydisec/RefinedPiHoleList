@@ -1,4 +1,4 @@
-name: Update Pi-hole Blocklist
+name: Test Pi-hole Blocklist
 
 on:
   workflow_dispatch:
