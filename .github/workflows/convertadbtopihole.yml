@@ -40,7 +40,7 @@ jobs:
     - name: Commit and push if it changed
       run: |
         git diff > /dev/null
-        git config --global user.email "c.cshah50@gmail.com"
+        git config --global user.email "me@spydisec.online"
         git config --global user.name "spydisec"
         git commit -am "Pi-hole blocklist update" || exit 0
         git push
