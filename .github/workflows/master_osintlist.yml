@@ -1,6 +1,7 @@
 name: Update Pi-hole Blocklist - OSINT.digitalside.it
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 0 */2 * *'  # Runs every two days
 
