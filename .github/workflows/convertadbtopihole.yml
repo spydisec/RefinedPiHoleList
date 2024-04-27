@@ -44,3 +44,5 @@ jobs:
         git config --global user.name "spydisec"
         git commit -am "Pi-hole blocklist update" || exit 0
         git push
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
