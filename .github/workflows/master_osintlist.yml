@@ -45,6 +45,8 @@ jobs:
     - name: Commit and push if it changed
       run: |
         git diff --quiet || git commit -am "Pi-hole OSINT.digitalside.it blocklist update"
+        git config --global user.email "me@spydisec.online"
+        git config --global user.name "spydisec"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
