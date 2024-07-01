@@ -391,3 +391,25 @@ cdn.glitch.global
 iojhfyughnklnjb.shop
 karimgouss.ug
 professionalresources.pw
+# Generated at: 2024-06-30 08:05:12                                   #
+172-105-66-118.ip.linodeusercontent.com
+220-133-67-91.hinet-ip.hinet.net
+avast-antivirus.com
+avastpst.com
+avastsf.com
+avastsgp.com
+avastsp.com
+b46.oss-cn-hongkong.aliyuncs.com
+down.ftp21.cc
+extraiptv.giize.com
+juytlioojbni.duckdns.org
+lsrael.today
+managermagnetcccccmango.duckdns.org
+moreapp4you.online
+register-agov.com
+www.agov-access.com
+www.agov-access.net
+www.agov-ch.com
+www.avastsp.com
+www.extraiptv.giize.com
+www.register-agov.com
