@@ -548,3 +548,10 @@ ns2.junks.ac.ug
 securenexus.nl
 voucher-01-static.com
 wildenauer.name
+# Generated at: 2024-07-12 08:06:45                                   #
+bades.co.tz
+barakaest.com
+foodbook.live
+jafaraton.store
+mi.ab48.sa.com
+vps-276e8ec4.vps.ovh.net
