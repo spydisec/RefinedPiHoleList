@@ -1,6 +1,6 @@
 # Refined PiHole List
 
-## Workflow Status
+## Last Update Status
 - ![Update Pi-hole Blocklist - RPiListMalware](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/adb2pihole_RPiListMalware.yml/badge.svg) [](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/adb2pihole_RPiListMalware.yml)
 - ![Update Pi-hole Blocklist - BIG-oisd](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/adb2pihole_oisdbig.yml/badge.svg) [](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/adb2pihole_oisdbig.yml)
 - ![Update Pi-hole Blocklist - NoTrack Malware Blocklist](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/master_notracklist-malware.yml/badge.svg) [](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/master_notracklist-malware.yml)
