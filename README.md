@@ -14,3 +14,10 @@ Refined PiHole List (Currently in Beta)
 We are currently working on creating a master list that eliminates duplicate domain names. 
 
 Feel free to provide feedback and updates (contribute).
+
+## TODO
+- [ ] Cleanup the code! (most of this was written as PoC)
+- [ ] Update Pihole whitelist script
+- [ ] Add installation script for automated install
+- [ ] Add additional lists to combine into one mega list
+- [ ] Add instructions to host the list on the pi-host itself
