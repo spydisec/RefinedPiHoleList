@@ -32,17 +32,23 @@ jobs:
         # Extract non-commented domains from latest_domains.txt
         grep -v '^#' latest_domains.txt > filtered_latest_domains.txt
 
-        # Append unique domains to the master list
+        # Add current date and time as a commented line
+        echo "# Updated on $(date)" >> temp_file.txt
+
+        # Append unique domains to temp_file.txt
         while IFS= read -r domain
         do
           # If the domain is not already in the master list, append it
           if ! grep -q "^$domain$" pihole_collective_digitalside_osint.txt; then
-            echo "$domain" >> pihole_collective_digitalside_osint.txt
+            echo "$domain" >> temp_file.txt
           fi
         done < filtered_latest_domains.txt
 
-        # Remove the downloaded latest domains
-        rm latest_domains.txt filtered_latest_domains.txt
+        # Append the temp file to the master list
+        cat temp_file.txt >> pihole_collective_digitalside_osint.txt
+
+        # Remove temporary files
+        rm latest_domains.txt filtered_latest_domains.txt temp_file.txt
 
     - name: Commit and push if it changed
       run: |
