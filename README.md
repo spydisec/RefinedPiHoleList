@@ -14,15 +14,18 @@ We are currently working on creating a master list that eliminates duplicate dom
 
 Feel free to provide feedback and updates (contribute).
 
-## **Automated Install**
-For a quick and convenient setup, you can install Pi-hole Blocklist URLs and Whitelist Domains by using the following command:
+## Automated Install
 
-**BlockList Installation**
+For a quick and convenient setup, you can install Pi-hole Blocklist URLs and Whitelist Domains by using the following commands:
+
+### BlockList URLs Installation
+```bash
 curl -sSL https://raw.githubusercontent.com/spydisec/RefinedPiHoleList/main/automated%20install/piholeblocklist_easy_install.sh | bash
-
-**Whitelist Domain Innstallation**
-curl -sSL https://raw.githubusercontent.com/spydisec/RefinedPiHoleList/main/automated%20install/piholewhitelist_easy_install.sh | bash
-
+```
+## Whitelist Domain Installation
+```bash
+curl -sSL https://raw.githubusercontent.com/spydisec/RefinedPiHoleList/main/automated%20install/piholeblocklist_easy_install.sh | bash
+```
 
 ## TODO
 - [ ] Cleanup the code! (most of this was written as PoC)
