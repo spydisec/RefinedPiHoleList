@@ -14,6 +14,11 @@ We are currently working on creating a master list that eliminates duplicate dom
 
 Feel free to provide feedback and updates (contribute).
 
+## **Automated Install**
+Those who want to get started quickly and conveniently may install Pi-hole using the following command:
+
+- draft
+
 ## TODO
 - [ ] Cleanup the code! (most of this was written as PoC)
 - [ ] Update Pihole whitelist script
