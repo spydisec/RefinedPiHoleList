@@ -1,4 +1,4 @@
-# Refined PiHole List
+# Refined PiHole BlockList & WhiteList
 
 ## Last Update Status
 - ![Update Pi-hole Blocklist - RPiListMalware](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/adb2pihole_RPiListMalware.yml/badge.svg) [](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/adb2pihole_RPiListMalware.yml)
@@ -10,7 +10,7 @@
 ## About
 Refined PiHole List (Currently in Beta)
 
-We are currently working on creating a master list that eliminates duplicate domain names. 
+We are currently working on creating a master list that eliminates duplicate domain names, connecting with Threat Intel, and much more.
 
 Feel free to provide feedback and updates (contribute).
 
