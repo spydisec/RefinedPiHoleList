@@ -124,12 +124,27 @@ jobs:
 
       - name: Commit and push if it changed
         run: |
-          git diff > /dev/null
-          git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
-          git config --global user.name "${{ secrets.GIT_USER_NAME }}"
-          git add "sefinekBlockList/pihole_bl_sefinek_danger_sites.txt"
-          git commit -am "Pi-hole blocklist update" || exit 0
-          git push
+          # Path for the main blocklist file
+          main_blocklist="sefinekBlockList/pihole_bl_sefinek_danger_sites.txt"
+
+          # Debug: list files in the directory to verify the path
+          echo "Listing files in the sefinekBlockList directory:"
+          ls -l sefinekBlockList
+
+          # Rename the file to a simpler name if needed
+          mv sefinekBlockList/pihole_bl_sefinek_danger_sites.txt sefinekBlockList/danger_sites.txt
+
+          # Check if the file exists
+          if [ -f sefinekBlockList/danger_sites.txt ]; then
+            echo "File sefinekBlockList/danger_sites.txt exists. Adding to git."
+            git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
+            git config --global user.name "${{ secrets.GIT_USER_NAME }}"
+            git add sefinekBlockList/danger_sites.txt
+            git commit -m "Pi-hole blocklist update" || exit 0
+            git push
+          else
+            echo "File sefinekBlockList/danger_sites.txt does not exist. Skipping git add and commit."
+          fi
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
