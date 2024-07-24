@@ -110,6 +110,10 @@ jobs:
           mkdir -p sefinekBlockList
           : > $main_blocklist
 
+          # Debug: list files in the directory to verify the path
+          echo "Listing files in the sefinekBlockList directory:"
+          ls -l sefinekBlockList
+
           # Download, filter, and append each blocklist to the main blocklist file
           for url in "${urls[@]}"; do
             wget -O - $url | awk '$1 == "0.0.0.0" {print $0}' >> $main_blocklist
