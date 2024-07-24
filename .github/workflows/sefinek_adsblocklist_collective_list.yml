@@ -1,0 +1,82 @@
+name: Update Pi-hole Blocklist - Sefinek Ads, Analytics & Tracking
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *" # Runs every day at 2 AM UTC
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: sudo apt-get install -y wget
+
+      - name: Download and combine blocklists
+        run: |
+          # URLs of the blocklists
+          urls=(
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/test.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/0Zinc/easylist.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/adaway/hosts.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/anudeepND/adservers.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/blocklistproject/hosts.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/blocklistproject/youtube.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/craiu/mobiletrackers.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/crazy-max/spy.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/DandelionSprout.GameConsoleAdblockList.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/disconnectme/simple-ad.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/FadeMind/UncheckyAds.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/firebog/AdguardDNS.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/firebog/Admiral.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/firebog/Easylist.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/firebog/Prigent-Ads.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/jerryn70/GoodbyeAds.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/MajkiIT/SmartTV-ads.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/r-a-y/AdguardMobileAds.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/sefinek.hosts.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/ShadowWhisperer/Ads.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/ads/yoyo/ads-trackers-etc.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/tracking-and-telemetry/0Zinc/easyprivacy.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/tracking-and-telemetry/ente-dev/tv.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/tracking-and-telemetry/frogeye/firstparty-trackers-hosts.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/tracking-and-telemetry/MajkiIT/adguard-mobile-host.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/tracking-and-telemetry/mitchellkrogza/INACTIVE.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/tracking-and-telemetry/neodevpro/host.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/tracking-and-telemetry/quidsup/trackers-hosts.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/amp/developerdan/amp-hosts-extended.fork.txt"
+            "https://blocklist.sefinek.net/generated/v1/0.0.0.0/amp/ente-dev/google-amp-hosts.fork.txt"
+          )
+
+          # Path for the main blocklist file
+          main_blocklist="sefinekBlockList/pihole_bl_sefinek_ads_tele_analytics.txt"
+          mkdir -p sefinekBlockList
+          : > $main_blocklist
+
+          # Download and append each blocklist to the main blocklist file
+          for url in "${urls[@]}"; do
+            wget -O - $url >> $main_blocklist
+          done
+
+          # Remove duplicate domains
+          sort -u $main_blocklist -o $main_blocklist
+
+      - name: Commit and push if it changed
+        run: |
+          git diff > /dev/null
+          git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
+          git config --global user.name "${{ secrets.GIT_USER_NAME }}"
+          git commit -am "Pi-hole blocklist update" || exit 0
+          git push
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
