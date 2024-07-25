@@ -2,11 +2,8 @@
 
 ## Last Update Status
 
-- ![Update Pi-hole Blocklist - RPiListMalware](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/adb2pihole_RPiListMalware.yml/badge.svg) [](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/adb2pihole_RPiListMalware.yml)
-- [![Update Pi-hole Blocklist - Sefinek Ads, Analytics & Tracking](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/sefinek_adsblocklist_collective_list.yml/badge.svg)][]
-  (https://github.com/spydisec/RefinedPiHoleList/actions/workflows/sefinek_adsblocklist_collective_list.yml)
-- [![Update Pi-hole Blocklist - Sefinek Danger Sites Only Domains](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/sefinek_dangerlistonlydomains_collective_list.yml/badge.svg)][]
-  (https://github.com/spydisec/RefinedPiHoleList/actions/workflows/sefinek_dangerlistonlydomains_collective_list.yml)
+- [![Update Pi-hole Blocklist - Sefinek Ads, Analytics & Tracking](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/sefinek_adsblocklist_collective_list.yml/badge.svg)](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/sefinek_adsblocklist_collective_list.yml)
+- [![Update Pi-hole Blocklist - Sefinek Danger Sites Only Domains](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/sefinek_dangerlistonlydomains_collective_list.yml/badge.svg)](https://github.com/spydisec/RefinedPiHoleList/actions/workflows/sefinek_dangerlistonlydomains_collective_list.yml)
 
 ## About
 
