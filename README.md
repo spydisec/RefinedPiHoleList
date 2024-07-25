@@ -18,10 +18,6 @@ Feel free to provide feedback and updates (contribute).
 
 For a quick and convenient setup, you can install Pi-hole Blocklist URLs and Whitelist Domains by using the following commands:
 
-### BlockList URLs Installation
-```bash
-curl -sSL https://raw.githubusercontent.com/spydisec/RefinedPiHoleList/main/automated%20install/piholeblocklist_easy_install.sh | bash
-```
 ### Whitelist Domain Installation
 ```bash
 curl -sSL https://raw.githubusercontent.com/spydisec/RefinedPiHoleList/main/automated%20install/piholeblocklist_easy_install.sh | bash
