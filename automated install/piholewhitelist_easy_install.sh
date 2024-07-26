@@ -14,6 +14,7 @@ google_domains=(
     "firestore.googleapis.com"
     "gstaticadssl.l.google.com"
     "redirector.gvt1.com"
+    "manifest.googlevideo.com"
 )
 
 # Microsoft services
@@ -59,6 +60,8 @@ microsoft_domains=(
     "settings-win.data.microsoft.com"
     "officeclient.microsoft.com"
     "ipv6.msftncsi.com"
+    "arc.msn.com"
+    "client.wns.windows.com"
 )
 
 # Captive portal tests
@@ -78,6 +81,7 @@ spotify_domains=(
 # NVIDIA GeForce Experience
 nvidia_domains=(
     "gfwsl.geforce.com"
+    "events.gfe.nvidia.com"
 )
 
 # Moto phones OS updates
@@ -90,7 +94,67 @@ epic_domains=(
     "tracking.epicgames.com"
 )
 
+# Additional domains
+additional_domains=(
+    "click.discord.com"
+    "email.faceit.com"
+    "m.stripe.com"
+    "deviantart.com"
+    "www.deviantart.com"
+    "booth.pm"
+    "theannoyingsite.com"
+    "kucoin.com"
+    "accounts.binance.com"
+    "binance.com"
+    "launchpad.binance.com"
+    "p2p.binance.com"
+    "stream.binance.com"
+    "www.binance.com"
+    "widget.trustpilot.com"
+    "userlike-cdn-widgets.s3-eu-west-1.amazonaws.com"
+    "download.komputerswiat.pl"
+    "komputerswiat.pl"
+    "www.komputerswiat.pl"
+    "forum.pclab.pl"
+    "g2a.com"
+    "www.g2a.com"
+    "trk.mail.ru"
+    "onelogin.wpcdn.pl"
+    "ns2.parking.reg.ru"
+    "parking.reg.ru"
+    "www.reg.ru"
+    "email.mg.outbyte.com"
+    "outbyte.com"
+    "chomikuj.pl"
+    "s6704.chomikuj.pl"
+    "s72.chomikuj.pl"
+    "s8802.chomikuj.pl"
+    "pixalate.com"
+    "2ip.io"
+    "cedexis.net"
+    "email.mail.zapier.com"
+    "s0.wp.com"
+    "mailgun.org"
+    "sirus.su"
+    "www.sirus.su"
+    "postimg.cc"
+    "i.ibb.co"
+    "e.customeriomail.com"
+    "mywot.com"
+    "www.mywot.com"
+    "ipqualityscore.com"
+    "www.ipqualityscore.com"
+    "api.ipify.org"
+    "ipify.org"
+    "www.ipify.org"
+    "api.hh.ru"
+    "go.fossa.com"
+    "email-link.adtidy.org"
+    "webparanoid.com"
+    "cdn.cookielaw.org"
+)
+
 # Whitelist all domains
-for domain in "${google_domains[@]}" "${microsoft_domains[@]}" "${captive_portal_domains[@]}" "${spotify_domains[@]}" "${nvidia_domains[@]}" "${moto_domains[@]}" "${epic_domains[@]}"; do
+for domain in "${google_domains[@]}" "${microsoft_domains[@]}" "${captive_portal_domains[@]}" "${spotify_domains[@]}" "${nvidia_domains[@]}" "${moto_domains[@]}" "${epic_domains[@]}" "${additional_domains[@]}"; do
     whitelist "$domain"
 done
