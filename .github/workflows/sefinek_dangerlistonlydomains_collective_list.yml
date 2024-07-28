@@ -2,8 +2,8 @@ name: Update Pi-hole Blocklist - Sefinek Danger Sites Only Domains
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 5 * * *" # Runs every day at 5 AM UTC
+  #schedule:
+  #  - cron: "0 5 * * *" # Runs every day at 5 AM UTC
 
 jobs:
   update:
